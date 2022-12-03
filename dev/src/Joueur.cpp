@@ -26,6 +26,13 @@ Joueur::changeDirectionVitesse(double nx, double ny){
     double norme = sqrt(vx*vx+vy*vy);
     vx = nxx*norme;
     vy = nyy*norme;
+    updateVitesse();
+}
+
+void Joueur::stop() {
+	// TODO si on met 0 tout crash
+	vx = 0.00001;
+	vy = 0.00001;
 }
 
 

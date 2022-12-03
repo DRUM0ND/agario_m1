@@ -17,6 +17,8 @@ private:
     SDL_Renderer *renderer;
     Plateau plateau;
     Joueur joueurPrincipal;
+
+    bool mouseInsidePlayerBody(double dx, double dy);
   
 };
 

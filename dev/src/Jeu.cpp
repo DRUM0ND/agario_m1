@@ -28,6 +28,10 @@ Jeu::~Jeu(){
     SDL_Quit();
 }
 
+bool Jeu::mouseInsidePlayerBody(double dx, double dy) {
+	return dx > 0 && dy > 0 && dx < joueurPrincipal.corps.w && dy < joueurPrincipal.corps.h;
+}
+
 bool Jeu::tick()
 {
     SDL_SetRenderDrawColor(renderer, 230, 230, 230, 255);
@@ -64,7 +68,13 @@ bool Jeu::tick()
                 plateau.convertToFenetreCoords(px, py);
                 double dx = e.motion.x - px;
                 double dy = e.motion.y - py;
-                joueurPrincipal.changeDirectionVitesse(dx, dy);
+                if(mouseInsidePlayerBody(dx, dy))
+                	joueurPrincipal.stop();
+                else {
+                	joueurPrincipal.changeDirectionVitesse(dx, dy);
+                }
+
+
             }
                 break;
             case SDL_QUIT:
