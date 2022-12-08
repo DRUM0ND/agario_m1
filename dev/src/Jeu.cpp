@@ -70,11 +70,8 @@ bool Jeu::tick()
                 double dy = e.motion.y - py;
                 if(mouseInsidePlayerBody(dx, dy))
                 	joueurPrincipal.stop();
-                else {
+                else
                 	joueurPrincipal.changeDirectionVitesse(dx, dy);
-                }
-
-
             }
                 break;
             case SDL_QUIT:
