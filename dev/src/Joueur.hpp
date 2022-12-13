@@ -17,6 +17,9 @@ public:
     bool peutManger(const Joueur &joueur);
     void updateVitesse();
     void stop();
+
+    void diviseTaille();
+
     float taille = 20.0;
     const double vittMax = 2.0;
     bool estVisible = true;

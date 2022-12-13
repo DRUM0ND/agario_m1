@@ -74,6 +74,12 @@ bool Jeu::tick()
                 	joueurPrincipal.changeDirectionVitesse(dx, dy);
             }
                 break;
+            case SDL_KEYDOWN:
+                if (e.key.keysym.sym == SDLK_a)
+                {
+                    plateau.lacheDeLest(joueurPrincipal);
+                    break;
+                }
             case SDL_QUIT:
                 return false;
         }

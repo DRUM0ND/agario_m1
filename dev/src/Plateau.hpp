@@ -13,10 +13,12 @@ public:
     bool estJoueurDansFenetre(const Joueur &joueur);
     void draw(SDL_Renderer *);
     std::vector<Joueur> joueurs;
+    void generationJoueur(int t);
     void generationJoueurs(int nb);
     void ajoutStaticElem(int nb);
     void convertToFenetreCoords(double &x, double &y);
     void afficheJoueur(Joueur j, SDL_Renderer *renderer);
+    void lacheDeLest(Joueur &joueur);
     
 private:
 

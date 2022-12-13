@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include "Joueur.hpp"
 #include <iostream>
+
 Joueur::Joueur()
 {
     
@@ -105,4 +106,10 @@ Joueur::incrementeVitesse(double varX, double varY){
 bool
 Joueur::peutManger(const Joueur &joueur){
     return corps.w > joueur.corps.w;
+}
+
+void
+Joueur::diviseTaille() {
+    corps.h /= 2;
+    corps.w /= 2;
 }
