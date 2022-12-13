@@ -89,7 +89,7 @@ Plateau::generationJoueur(int t) //ajout variable pour spécifier la taille du jo
 }
 
 void
-Plateau::generationJoueurs(int nb) //ajout variable pour spécifier la taille du joueur
+Plateau::generationJoueurs(int nb)
 {
     for (int i=0; i < nb; i++){
         generationJoueur(rand() % 30);
