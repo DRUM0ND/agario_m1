@@ -80,6 +80,7 @@ bool Jeu::tick()
                     plateau.lacheDeLest(joueurPrincipal);
                     break;
                 }
+                break;
             case SDL_QUIT:
                 return false;
         }

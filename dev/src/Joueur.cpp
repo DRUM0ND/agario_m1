@@ -31,15 +31,14 @@ Joueur::changeDirectionVitesse(double nx, double ny){
 }
 
 void Joueur::stop() {
-	// TODO si on met 0 tout crash
-	vx = 0.00001;
-	vy = 0.00001;
+	// FIXME si on met 0 tout crash
+	vx = 0.0000000000000001;
+	vy = 0.0000000000000001;
 }
 
 
 // Regulation de la norme de la vitesse en fonction du la taille.
-void
-Joueur::updateVitesse()
+void Joueur::updateVitesse()
 {
     double norme = sqrt(vx*vx+vy*vy);
     double regulNorme = 25.0/corps.w * vboost;
@@ -92,15 +91,6 @@ void
 Joueur::incrementeVitesse(double varX, double varY){
     vx += varX;
     vy += varY;
-    if (abs(vx+varX) < vittMax)
-    {
-        vx += varX;
-    }
-    if (abs(vy+varY) < vittMax)
-    {
-        vy += varY;
-    }
-
 }
 
 bool
