@@ -76,10 +76,7 @@ bool Jeu::tick()
                 break;
             case SDL_KEYDOWN:
                 if (e.key.keysym.sym == SDLK_SPACE)
-                {
                     plateau.lacheDeLest(joueurPrincipal);
-                    break;
-                }
                 break;
             case SDL_QUIT:
                 return false;

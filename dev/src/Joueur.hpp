@@ -12,7 +12,7 @@ public:
     void deplace();
     void incrementeVitesse(double varX, double varY);
     void changeDirectionVitesse(double nx, double ny);
-    bool collision(const Joueur &joueur);
+    bool collision(const Joueur joueur);
     void mange(Joueur &joueur);
     bool peutManger(const Joueur &joueur);
     void updateVitesse();

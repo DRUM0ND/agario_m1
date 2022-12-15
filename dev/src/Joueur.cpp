@@ -1,5 +1,6 @@
 
 #include <SDL.h>
+#include <SDL2_gfxPrimitives.h>
 #include "Joueur.hpp"
 #include <iostream>
 
@@ -47,7 +48,7 @@ void Joueur::updateVitesse()
 }
 
 bool
-Joueur::collision(const Joueur &joueur)
+Joueur::collision(const Joueur joueur)
 {
     SDL_Rect cd = {(int)corps.x, (int)corps.y, (int)corps.w, (int)corps.h };
     SDL_Rect cdj = {(int)joueur.corps.x, (int)joueur.corps.y, (int)joueur.corps.w, (int)joueur.corps.h };
@@ -102,4 +103,5 @@ void
 Joueur::diviseTaille() {
     corps.h /= 2;
     corps.w /= 2;
+    updateVitesse();
 }

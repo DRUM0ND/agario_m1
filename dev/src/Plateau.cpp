@@ -1,4 +1,5 @@
 #include <SDL.h>
+#include <SDL2_gfxPrimitives.h>
 #include "Plateau.hpp"
 #include "Jeu.hpp"
 #include <iostream>
@@ -55,7 +56,7 @@ Plateau::ajoutStaticElem(int nb){
 }
 
 void
-Plateau::generationJoueur(int t) //ajout variable pour spécifier la taille du joueur
+Plateau::generationJoueur(int t) //ajout variable pour spï¿½cifier la taille du joueur
 {
     double x = (double)(rand() % ReglageJeu::LARGEUR_MONDE_JEU);
     double y = (double)(rand() % ReglageJeu::HAUTEUR_MONDE_JEU);
@@ -110,8 +111,9 @@ Plateau::afficheJoueur(Joueur j, SDL_Renderer *renderer){
         SDL_SetRenderDrawColor(renderer, j.r, j.g, j.b, 255);
         double xx = j.corps.x, yy = j.corps.y;
         convertToFenetreCoords(xx, yy);
-        SDL_Rect cd = { (int)xx, (int)yy, (int)j.corps.w, (int)j.corps.h };
-        SDL_RenderFillRect(renderer, &cd);
+//        SDL_Rect cd = { (int)xx, (int)yy, (int)j.corps.w, (int)j.corps.h };
+//        SDL_RenderFillRect(renderer, &cd);
+        filledCircleRGBA(renderer, xx+j.corps.w/2, yy+j.corps.h/2, j.corps.w/2, j.r, j.g, j.b, 255);
     }
 }
 
