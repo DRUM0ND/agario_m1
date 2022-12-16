@@ -1,5 +1,4 @@
 #include <SDL.h>
-#include <SDL2_gfxPrimitives.h>
 #include "Plateau.hpp"
 #include "Jeu.hpp"
 #include <iostream>
@@ -60,9 +59,6 @@ Plateau::generationJoueur(int t) //ajout variable pour sp�cifier la taille du 
 {
     double x = (double)(rand() % ReglageJeu::LARGEUR_MONDE_JEU);
     double y = (double)(rand() % ReglageJeu::HAUTEUR_MONDE_JEU);
-    std::cout << "valeur t : " << t << std::endl;
-    //double t  = (double) (rand()%30);
-    //std::cout << "valeur t apres : " << t << std::endl;
 
     Uint8 r = rand() % 255;
     Uint8 g = rand() % 255;
@@ -85,8 +81,6 @@ Plateau::generationJoueur(int t) //ajout variable pour sp�cifier la taille du 
     jj.vy = vx;
     jj.vy = vy;
     jj.updateVitesse();
-
-    std::cout << "CREATION JOUEUR" << std::endl;
 }
 
 void
@@ -104,6 +98,13 @@ Plateau::convertToFenetreCoords(double &x, double &y)
     y = y - fenetreYorigin;
 }
 
+void drawFilledCircle(SDL_Renderer* renderer, int cx, int cy, int rayon, int r, int g, int b) {
+	SDL_SetRenderDrawColor(renderer, r, g, b, SDL_ALPHA_OPAQUE);
+	for (int y = -rayon; y <=rayon; y++) {
+		int x = sqrt(rayon*rayon - y*y); // longeur du trait horizontal à la hauteur y
+		SDL_RenderDrawLine(renderer, cx - x, cy + y, cx + x, cy + y);
+	}
+}
 
 void
 Plateau::afficheJoueur(Joueur j, SDL_Renderer *renderer){
@@ -111,9 +112,7 @@ Plateau::afficheJoueur(Joueur j, SDL_Renderer *renderer){
         SDL_SetRenderDrawColor(renderer, j.r, j.g, j.b, 255);
         double xx = j.corps.x, yy = j.corps.y;
         convertToFenetreCoords(xx, yy);
-//        SDL_Rect cd = { (int)xx, (int)yy, (int)j.corps.w, (int)j.corps.h };
-//        SDL_RenderFillRect(renderer, &cd);
-        filledCircleRGBA(renderer, xx+j.corps.w/2, yy+j.corps.h/2, j.corps.w/2, j.r, j.g, j.b, 255);
+        drawFilledCircle(renderer, xx, yy, j.corps.w/2, j.r, j.g, j.b);
     }
 }
 
