@@ -49,11 +49,14 @@ void Joueur::updateVitesse()
 bool
 Joueur::collision(const Joueur joueur)
 {
-	double rayon1 = corps.w/2;
-	double rayon2 = joueur.corps.w/2;
-	double distance = sqrt(pow(corps.x - joueur.corps.x, 2) +
-			pow(corps.y - joueur.corps.y, 2));
-	return rayon1+rayon2 >= abs(distance);
+//	double rayon1 = corps.w/2;
+//	double rayon2 = joueur.corps.w/2;
+//	double distance = sqrt(pow(corps.x - joueur.corps.x, 2) +
+//			pow(corps.y - joueur.corps.y, 2));
+//	return rayon1+rayon2 >= abs(distance);
+	SDL_Rect cd = {(int)corps.x, (int)corps.y, (int)corps.w, (int)corps.h };
+	SDL_Rect cdj = {(int)joueur.corps.x, (int)joueur.corps.y, (int)joueur.corps.w, (int)joueur.corps.h };
+	return SDL_HasIntersection(&cd, &cdj);
 }
 
 void

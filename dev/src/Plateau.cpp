@@ -110,7 +110,7 @@ void
 Plateau::afficheJoueur(Joueur j, SDL_Renderer *renderer){
     if (j.estVisible){
         SDL_SetRenderDrawColor(renderer, j.r, j.g, j.b, 255);
-        double xx = j.corps.x, yy = j.corps.y;
+        double xx = j.corps.x+j.corps.w/2, yy = j.corps.y+j.corps.w/2;
         convertToFenetreCoords(xx, yy);
         drawFilledCircle(renderer, xx, yy, j.corps.w/2, j.r, j.g, j.b);
     }
