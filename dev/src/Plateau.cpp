@@ -55,7 +55,7 @@ Plateau::ajoutStaticElem(int nb){
 }
 
 void
-Plateau::generationJoueur(int t) //ajout variable pour sp�cifier la taille du joueur
+Plateau::generationJoueur(int t) //ajout variable pour specifier la taille du joueur
 {
     double x = (double)(rand() % ReglageJeu::LARGEUR_MONDE_JEU);
     double y = (double)(rand() % ReglageJeu::HAUTEUR_MONDE_JEU);
@@ -101,7 +101,7 @@ Plateau::convertToFenetreCoords(double &x, double &y)
 void drawFilledCircle(SDL_Renderer* renderer, int cx, int cy, int rayon, int r, int g, int b) {
 	SDL_SetRenderDrawColor(renderer, r, g, b, SDL_ALPHA_OPAQUE);
 	for (int y = -rayon; y <=rayon; y++) {
-		int x = sqrt(rayon*rayon - y*y); // longeur du trait horizontal à la hauteur y
+		int x = sqrt(rayon*rayon - y*y); // longueur du trait horizontal à la hauteur y
 		SDL_RenderDrawLine(renderer, cx - x, cy + y, cx + x, cy + y);
 	}
 }
